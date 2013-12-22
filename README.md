@@ -42,3 +42,12 @@ Install the plugin in your /etc/chef/ohai_plugins direcotry, and add the Ohai co
 }
 
 ```
+
+License and Author
+------------------
+
+Author:: Limelight Networks, Inc. (<tsmith@limelight.com>)
+
+Copyright:: 2013, Limelight Networks, Inc.
+
+License:: All rights reserved
