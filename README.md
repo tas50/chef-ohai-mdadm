@@ -50,4 +50,4 @@ Author:: Limelight Networks, Inc. (<tsmith@limelight.com>)
 
 Copyright:: 2013, Limelight Networks, Inc.
 
-License:: All rights reserved
+License:: Apache 2.0
