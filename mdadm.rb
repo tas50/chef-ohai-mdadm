@@ -1,9 +1,8 @@
 #
 # Author:: Tim Smith <tsmith@limelight.com>
 # Plugin:: mdadm
-# Version:: 0.1.0
 #
-# Copyright 2013, Limelight Networks, Inc.
+# Copyright 2013-2014, Limelight Networks, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,7 +25,7 @@ def create_raid_device_mash(stdout)
   stdout.each_line do |line|
     case line
     when /Version\s+: ([0-9.]+)/
-      device_mash[:metadata_version] = Regexp.last_match[1]
+      device_mash[:version] = Regexp.last_match[1].to_f
     when /Raid Level\s+: raid([0-9]+)/
       device_mash[:level] = Regexp.last_match[1].to_i
     when /Array Size.*\(([0-9.]+)/
