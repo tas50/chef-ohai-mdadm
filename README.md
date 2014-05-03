@@ -4,7 +4,7 @@ chef-ohai-mdadm
 A Chef Ohai plugin for gathering mdadm data. This will give you output of all your mdadm software raid volumes in Linux.
 
 ##Usage
-Install the plugin in your /etc/chef/ohai_plugins direcotry, and add the Ohai cookbook to your runlist to load plugins from that directory.
+Install the plugin in your /etc/chef/ohai_plugins direcotry, and add the Ohai cookbook to your runlist to load plugins from that directory.  There are plugins provided for Ohai 6 and Ohai 7.  Make sure to use the appropriate plugin based on your version of Ohai.
 
 ###Example Output:
 
@@ -48,6 +48,6 @@ License and Author
 
 Author:: Limelight Networks, Inc. (<tsmith@limelight.com>)
 
-Copyright:: 2013, Limelight Networks, Inc.
+Copyright:: 2013-2014, Limelight Networks, Inc.
 
 License:: Apache 2.0
