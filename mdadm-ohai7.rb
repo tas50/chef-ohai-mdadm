@@ -1,8 +1,7 @@
 #
 # Author:: Tim Smith <tsmith@limelight.com>
+# Copyright:: Copyright (c) 2013-2014, Limelight Networks, Inc.
 # Plugin:: mdadm
-#
-# Copyright 2013-2014, Limelight Networks, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +22,7 @@ Ohai.plugin(:Mdadm) do
   def create_raid_device_mash(stdout)
     device_mash = Mash.new
     device_mash[:device_counts] = Mash.new
-    stdout.each_line do |line|
+    stdout.lines.each do |line|
       case line
       when /Version\s+: ([0-9.]+)/
         device_mash[:version] = Regexp.last_match[1].to_f
@@ -65,11 +64,10 @@ Ohai.plugin(:Mdadm) do
           mdadm[device] = Mash.new
 
           # gather detailed information on the array
-          cmd = "mdadm --detail /dev/#{device}"
-          status, stdout, stderr = run_command(:command => cmd)
+          so = shell_out("mdadm --detail /dev/#{device}")
 
-          # if the mdadm command was sucessful pass stdout to create_raid_device_mash to grab the tidbits we want
-          mdadm[device] = create_raid_device_mash(stdout) if status == 0
+          # if the mdadm command was sucessful pass so.stdout to create_raid_device_mash to grab the tidbits we want
+          mdadm[device] = create_raid_device_mash(so.stdout) if so.stdout
         end
       end
     end
