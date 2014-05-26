@@ -50,7 +50,7 @@ def create_raid_device_mash(stdout)
 end
 
 # gather a list of all raid arrays
-if File.exists?('/proc/mdstat')
+if File.exist?('/proc/mdstat')
   devices = []
   File.open('/proc/mdstat').each do |line|
     devices << Regexp.last_match[1] if line =~ /(md[0-9]+)/
